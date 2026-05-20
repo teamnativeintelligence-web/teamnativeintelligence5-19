@@ -1,0 +1,92 @@
+/* FactShield – injected styles */
+#factshield-btn {
+  position: absolute; z-index: 2147483647;
+  padding: 7px 14px; background: linear-gradient(135deg,#6366f1,#8b5cf6);
+  color: #fff; border-radius: 20px; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(99,102,241,.5); user-select: none; white-space: nowrap;
+  opacity: 0; transform: translateY(4px) scale(.95);
+  transition: opacity .15s, transform .15s; pointer-events: none;
+}
+#factshield-btn.fs-visible { opacity: 1; transform: none; pointer-events: auto; }
+#factshield-btn:hover { filter: brightness(1.12); }
+
+#factshield-panel {
+  position: fixed; bottom: 20px; right: 20px; z-index: 2147483646;
+  width: 460px; max-width: calc(100vw - 40px); max-height: 86vh; overflow-y: auto;
+  background: #0f172a; border: 1px solid #334155; border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.6); font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size: 13px; color: #e2e8f0; opacity: 0; transform: translateY(14px) scale(.97);
+  transition: opacity .25s, transform .25s; scrollbar-width: thin; scrollbar-color: #334155 #0f172a;
+}
+#factshield-panel.fs-panel-visible { opacity: 1; transform: none; }
+
+.fs-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px 10px; border-bottom: 1px solid #1e293b;
+  position: sticky; top: 0; background: #0f172a; border-radius: 16px 16px 0 0; z-index: 1;
+}
+.fs-logo { font-size: 15px; font-weight: 700; color: #f8fafc; display: flex; align-items: center; gap: 6px; }
+.fs-close {
+  background: none; border: none; color: #64748b; cursor: pointer;
+  font-size: 16px; padding: 4px 8px; border-radius: 6px;
+}
+.fs-close:hover { background: #1e293b; color: #e2e8f0; }
+
+.fs-claim { padding: 10px 16px; background: #1e293b; border-bottom: 1px solid #0f172a; }
+.fs-clabel { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .07em; color: #64748b; margin-bottom: 3px; }
+.fs-ctext { display: block; font-size: 12px; color: #94a3b8; font-style: italic; line-height: 1.5; }
+
+.fs-loading { padding: 28px 16px; text-align: center; }
+.fs-spin {
+  width: 34px; height: 34px; border: 3px solid #1e293b; border-top-color: #6366f1;
+  border-radius: 50%; animation: fsspin .8s linear infinite; margin: 0 auto 12px;
+}
+@keyframes fsspin { to { transform: rotate(360deg); } }
+.fs-loading p { color: #94a3b8; margin-bottom: 4px; }
+.fs-loading small { color: #475569; font-size: 11px; }
+
+.fs-score {
+  padding: 14px 16px; display: flex; align-items: center; gap: 14px;
+  border-bottom: 1px solid #1e293b;
+}
+.fs-agree {
+  display: inline-block; margin-top: 5px; font-size: 11px;
+  padding: 2px 10px; border-radius: 10px; font-weight: 500;
+}
+.fs-agree.agree   { background: #14532d; color: #86efac; }
+.fs-agree.minor   { background: #78350f; color: #fde68a; }
+.fs-agree.disagree{ background: #450a0a; color: #fca5a5; }
+
+.fs-cards { padding: 8px 16px; display: flex; flex-direction: column; gap: 8px; }
+.fs-mcard { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 10px 12px; }
+.fs-mhead { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.fs-mbadge { background: #334155; color: #94a3b8; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
+.fs-mname { font-size: 11px; color: #64748b; font-family: monospace; }
+.fs-mev { font-size: 12px; color: #94a3b8; line-height: 1.55; }
+
+.fs-sec { padding: 6px 16px; }
+.fs-sec h4 { font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; color: #64748b; margin-bottom: 5px; }
+.fs-sec ul { list-style: none; padding: 0; }
+.fs-sec li { font-size: 12px; color: #94a3b8; padding: 3px 0 3px 10px;
+  border-left: 2px solid #334155; margin-bottom: 3px; line-height: 1.5; }
+.fs-red li { border-left-color: #ef4444; color: #fca5a5; }
+.fs-src li { border-left-color: #6366f1; color: #a5b4fc; }
+
+.fs-error { padding: 24px 16px; text-align: center; }
+.fs-error p { color: #fca5a5; margin-bottom: 6px; font-size: 13px; }
+.fs-ehint { color: #94a3b8 !important; font-size: 12px !important; line-height: 1.5 !important; }
+
+.fs-foot {
+  padding: 10px 16px 14px; border-top: 1px solid #1e293b;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.fs-foot small { color: #475569; font-size: 10px; }
+.fs-retry {
+  background: #1e293b; border: 1px solid #334155; color: #94a3b8;
+  padding: 5px 12px; border-radius: 6px; cursor: pointer; font-size: 11px;
+  font-family: inherit; transition: all .15s;
+}
+.fs-retry:hover { background: #334155; color: #e2e8f0; }
